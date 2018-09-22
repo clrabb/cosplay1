@@ -1,10 +1,9 @@
-#ifndef TYPES_H
-#define TYPES_H
-
+#ifndef CP_TYPES_H
+#define CP_TYPES_H
 #include <Adafruit_NeoPixel.h>
 
 typedef Adafruit_NeoPixel pixel_strip;
 
-#endif // TYPES_H
+#endif // CP_TYPES_H
 
 
