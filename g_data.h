@@ -1,6 +1,8 @@
 #ifndef GLOBAL_DATA_H
 #define GLOBAL_DATA_H
 
+#include <arduino.h>
+
 class g_data
 {
 private:

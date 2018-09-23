@@ -48,6 +48,13 @@ void init_buttons()
     return;
 }
 
+void init_g_data()
+{
+    singleton_t< g_data > gd( new g_data );
+
+    return;
+}
+
 void init_pixel_array()
 {
     // Parameter 1 = number of pixels in strip
