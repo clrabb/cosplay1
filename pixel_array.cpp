@@ -12,15 +12,15 @@ pixel_array::num_pixels()
     return pixels->numPixels();
 }
 
+
 void
-pixel_array::rainbow( uint8_t wait )
+pixel_array::rainbow_all_same( uint8_t wait )
 {
-    uint16_t i, j;
     pixel_strip* strip = this->m_pixel_strip;
     
-    for( j = 0; j < 256; j++ ) 
+    for( uint16_t j = 0; j < 256; j++ ) 
     {
-        for( i = 0; i < this->num_pixels(); i++ ) 
+        for( uint16_t i = 0; i < this->num_pixels(); i++ ) 
         {
             strip->setPixelColor( i, wheel( ( i + j ) & 255 ) );
         }
@@ -29,6 +29,26 @@ pixel_array::rainbow( uint8_t wait )
         delay(wait);
     }
 }
+
+/*
+// Input a value 0 to 255 to get a color value.
+// The colours are a transition r - g - b - back to r.
+uint32_t 
+pixel_array::wheel(byte WheelPos) {
+  pixel_strip* strip = this->m_pixel_strip;
+  WheelPos = 255 - WheelPos;
+  if(WheelPos < 85) {
+    return strip->Color(255 - WheelPos * 3, 0, WheelPos * 3);
+  }
+  if(WheelPos < 170) {
+    WheelPos -= 85;
+    return strip->Color(0, WheelPos * 3, 255 - WheelPos * 3);
+  }
+  WheelPos -= 170;
+  return strip->Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+}
+*/
+
 
 // Input a value 0 to 255 to get a color value.
 // The colors are a transition r - g - b - back to r.
@@ -50,7 +70,7 @@ pixel_array::wheel( byte wheel_pos )
     }
     else
     {
-        byte new_pos = wheel_pos = 170;
+        byte new_pos = wheel_pos - 170;
         retval = strip->Color( new_pos * 3, 255 - new_pos * 3, 0 );
     }
     

@@ -25,6 +25,10 @@ void setup()
     #endif
 
     init_singletons();
+
+    pixel_array& pa = singleton_t< pixel_array >::instance();
+    pa.begin();
+    pa.show();
 }
 
 void init_singletons()
@@ -45,5 +49,5 @@ void init_singletons()
 void loop() 
 {
     pixel_array& pa = singleton_t< pixel_array >::instance();
-    pa.rainbow( 20 );
+    pa.rainbow_all_same( RAINBOW_SPEED_SLOW );
 }

@@ -1,7 +1,6 @@
 #ifndef PIXEL_ARRAY_H
 #define PIXEL_ARRAY_H
 
-#include "constants.h"
 #include "cp_types.h"
 
 class pixel_array
@@ -12,10 +11,12 @@ public:
     // Decorated
     //
     uint16_t num_pixels();
+    void show() { this->m_pixel_strip->show(); }
+    void begin() { this->m_pixel_strip->begin(); }
     
     // Lighting effects
     //
-    void rainbow( uint8_t wait );
+    void rainbow_all_same( uint8_t wait );
 
 private:
     uint32_t wheel( byte pos );
