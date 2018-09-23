@@ -20,6 +20,12 @@ public:
     button* bright_dn_btn() { return m_bright_dn_btn; }
     void bright_dn_btn( button* btn ) { m_bright_dn_btn = btn; }
 
+    button* prog_sel_right_btn() { return m_prog_sel_right_btn; }
+    void prog_sel_right_btn( button* btn ) { m_prog_sel_right_btn = btn; }
+
+    button* prog_sel_left_btn() { return m_prog_sel_left_btn; }
+    void prog_sel_left_btn( button* btn ) { m_prog_sel_left_btn = btn; }
+
     void update_buttons();
 
 private:
