@@ -2,6 +2,8 @@
 #include "cp_types.h"
 #include "pixel_array.h"
 #include "singleton_t.h"
+#include "g_data.h"
+#include "button_array.h"
 #include <arduino.h>
 
 #ifdef __AVR__
@@ -32,6 +34,21 @@ void setup()
 }
 
 void init_singletons()
+{
+    init_pixel_array();
+    init_buttons();
+
+    return;
+}
+
+void init_buttons()
+{
+    singleton_t< button_array > ba( new button_array );
+
+    return;
+}
+
+void init_pixel_array()
 {
     // Parameter 1 = number of pixels in strip
     // Parameter 2 = Arduino pin number (most are valid)
