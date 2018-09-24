@@ -3,10 +3,15 @@
 
 #include <arduino.h>
 
+/* ----------------- PINS ----------------------*/
+static const unsigned short BRIGHT_UP_BTN_PIN = 3;
+static const unsigned short BRIGHT_DN_BTN_PIN = 4;
+
+
 static const uint8_t PIXEL_ARRAY_MAX_BRIGHTNESS = 255;
 static const uint8_t PIXEL_ARRAY_MIN_BRIGHTNESS = 0; 
 static const short   PIXEL_ARRAY_PIN            = 2;
-static const short   NUM_PIXELS                 = 7;
+static const uint8_t NUM_PIXELS                 = 7;
 static const uint8_t RAINBOW_SPEED_FAST         = 2;  // how quicky the colors change (quick)
 static const uint8_t RAINBOW_SPEED_SLOW         = 50; // ..slower
 

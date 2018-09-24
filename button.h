@@ -16,8 +16,6 @@ public:
     button( short pin );
     short pin() { return m_pin; }
 
-    void update();
-
     button_state* current_state() { return m_current_state; }
     void current_state( button_state* state ) { state->reset_state(); m_current_state = state; }
 
@@ -35,7 +33,7 @@ public:
     // Virtual methods
     //
     //------------------------------------------
-    virtual void update_setpoint() = 0;
+    virtual void update() = 0;
         
     //------------------------------------------
     // 

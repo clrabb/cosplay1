@@ -1,6 +1,6 @@
 #include "button_state.h"
 #include "constants.h"
-#include "button.h"
+#include "brightness_btn.h"
 #include "singleton_t.h"
 #include "arduino.h"
 
@@ -86,7 +86,7 @@ button_state_pressed::reset_state()
 {
     button_state::reset_state();
     this->first_pressed_mills( millis() );
-    this->has_updated_setpoint( false );
+    this->has_updated_brightness( false );
 
     return;
 }
@@ -103,7 +103,7 @@ button_state_pressed::should_latch()
 bool
 button_state_pressed::is_first_pressed()
 {
-    return !( this->has_updated_setpoint() );
+    return !( this->has_updated_brightness() );
 }
 
 void 
@@ -122,8 +122,8 @@ button_state_pressed::button_pressed( button* btn )
 {
     if ( this->is_first_pressed() )
     {
-        btn->update_setpoint();
-        this->has_updated_setpoint( true );
+        btn->update();
+        this->has_updated_brightness( true );
     }
     else
     {
@@ -142,7 +142,7 @@ button_state_latched::button_pressed( button* btn )
 {
     if ( ( millis() - this->last_sp_change_mills() ) > BTN_UPDATE_SP_DELAY  )
     {
-        btn->update_setpoint();
+        btn->update();
         this->last_sp_change_mills( millis() );
     }
 

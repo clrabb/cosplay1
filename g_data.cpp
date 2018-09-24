@@ -1,6 +1,7 @@
 #include "g_data.h"
 
 #include "constants.h"
+#include <arduino.h>
 
 void
 g_data::increment_brightness()
@@ -9,6 +10,8 @@ g_data::increment_brightness()
     {
         brightness( brightness() + 1 );
     }
+
+    digitalWrite( LED_BUILTIN, HIGH );
 
     return;
 }
@@ -20,6 +23,8 @@ g_data::decrement_brightness()
     {
         brightness( brightness() - 1 );
     }
+
+    digitalWrite( LED_BUILTIN, LOW );
 
     return;
 }

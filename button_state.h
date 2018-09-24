@@ -43,13 +43,13 @@ class button_state_pressed: public button_state
 {
 private:
     unsigned long   m_first_pressed_mills;
-    bool            m_has_updated_setpoint;
+    bool            m_has_updated_brightness;
                  
     void            first_pressed_mills( unsigned long mills ) { m_first_pressed_mills = mills; }
     bool            is_first_pressed();
     bool            should_latch();
-    bool            has_updated_setpoint() { return m_has_updated_setpoint; }
-    void            has_updated_setpoint( bool updated ) { m_has_updated_setpoint = updated; }
+    bool            has_updated_brightness() { return m_has_updated_brightness; }
+    void            has_updated_brightness( bool updated ) { m_has_updated_brightness = updated; }
     void            switch_to_latched_if_needed( button* btn );
     
 protected:
