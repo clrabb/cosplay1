@@ -1,6 +1,6 @@
 #include "button_state.h"
+#include "button.h"
 #include "constants.h"
-#include "brightness_btn.h"
 #include "singleton_t.h"
 #include "arduino.h"
 
@@ -142,7 +142,7 @@ button_state_latched::button_pressed( button* btn )
 {
     if ( ( millis() - this->last_sp_change_mills() ) > BTN_UPDATE_SP_DELAY  )
     {
-        btn->update();
+        btn->updateFromLatched();
         this->last_sp_change_mills( millis() );
     }
 

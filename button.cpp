@@ -36,6 +36,5 @@ button::update()
 {
     this->current_state()->update( this );
     return;
-    
 }
 

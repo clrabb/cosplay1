@@ -34,6 +34,9 @@ public:
     //
     //------------------------------------------
     virtual void update() = 0;
+    virtual void updateFromPressed()    = 0;
+    virtual void updateFromUnpressed()  = 0;
+    virtual void updateFromLatched()    = 0;
         
     //------------------------------------------
     // 

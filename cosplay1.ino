@@ -4,8 +4,8 @@
 #include "singleton_t.h"
 #include "g_data.h"
 #include "button_array.h"
-#include "bright_up_btn.h"
-#include "bright_dn_btn.h"
+#include "bright_btn.h"
+
 #include <arduino.h>
 
 #ifdef __AVR__
@@ -48,9 +48,7 @@ void init_buttons()
     singleton_t< button_array > ba( new button_array );
 
     button_array& buttons = singleton_t< button_array >::instance();
-
-    buttons.bright_up_btn( new bright_up_btn( BRIGHT_UP_BTN_PIN ) );
-    buttons.bright_dn_btn( new bright_dn_btn( BRIGHT_DN_BTN_PIN ) );
+    buttons.bright_btn( new bright_btn( BRIGHT_UP_BTN_PIN ) );
 
     return;
 }
