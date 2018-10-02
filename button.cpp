@@ -8,9 +8,14 @@ button::button( short pin )
 {
     this->pressed_state(   new button_state_pressed()   );
     this->unpressed_state( new button_state_unpressed() );
-    this->latched_state(   new button_state_latched()   );
 
     this->current_state( this->unpressed_state() );
+}
+
+void
+button::update()
+{
+    this->current_state()->update( this );
 }
 
 bool
@@ -25,16 +30,37 @@ button::is_unpressed()
     return this->current_state()->is_unpressed();
 }
 
-bool 
-button::is_latched()
+void
+button::pressedFromUnpressed( button_state* state )
 {
-    return this->current_state()->is_latched();
+    this->pressedFromUnpressedImpl( state );
+    this->current_state( this->pressed_state() );
+
+    return;
+}
+
+
+void 
+button::pressedFromPressed( button_state* state )
+{
+    this->pressedFromPressedImpl( state );
+
+    return;
 }
 
 void
-button::update()
+button::unpressedFromPressed( button_state* state )
 {
-    this->current_state()->update( this );
-    return;
+    this->unpressedFromPressedImpl( state );
+    this->current_state( this->unpressed_state() );
+
+     return;
 }
+
+void
+button::unpressedFromUnpressed( button_state* state )
+{
+    this->unpressedFromUnpressedImpl( state );   
+}
+
 

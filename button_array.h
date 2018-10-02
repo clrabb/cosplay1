@@ -7,20 +7,16 @@ class button_array
 {
 private:
     button* m_bright_btn;
-    button* m_prog_sel_right_btn;
-    button* m_prog_sel_left_btn;
+    button* m_prog_sel_btn;
 
 public:
     button_array() {}
 
     button* bright_btn() { return m_bright_btn; }
     void bright_btn( button* btn ) { m_bright_btn = btn; }
-    
-    button* prog_sel_right_btn() { return m_prog_sel_right_btn; }
-    void prog_sel_right_btn( button* btn ) { m_prog_sel_right_btn = btn; }
 
-    button* prog_sel_left_btn() { return m_prog_sel_left_btn; }
-    void prog_sel_left_btn( button* btn ) { m_prog_sel_left_btn = btn; }
+    button* prog_sel_btn() { return m_prog_sel_btn; }
+    void prog_sel_btn( button* btn ) { m_prog_sel_btn = btn; }
 
     void update_buttons();
 

@@ -33,10 +33,18 @@ public:
     // Virtual methods
     //
     //------------------------------------------
-    virtual void update() = 0;
-    virtual void updateFromPressed()    = 0;
-    virtual void updateFromUnpressed()  = 0;
-    virtual void updateFromLatched()    = 0;
+    virtual void update();
+    virtual void pressedFromUnpressed( button_state* statee );
+    virtual void pressedFromUnpressedImpl( button_state* state ) {}
+    
+    virtual void pressedFromPressed( button_state* state );
+    virtual void pressedFromPressedImpl( button_state* state ) {}
+    
+    virtual void unpressedFromUnpressed( button_state* state );
+    virtual void unpressedFromUnpressedImpl( button_state* state ) {}
+    
+    virtual void unpressedFromPressed( button_state* state );
+    virtual void unpressedFromPressedImpl( button_state* state ) {}
         
     //------------------------------------------
     // 

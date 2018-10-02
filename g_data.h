@@ -9,10 +9,9 @@ private:
     uint8_t m_brightness;
 
 public:
-    g_data(){}
+    g_data();
     uint8_t brightness() { return m_brightness; }
     void increment_brightness();
-    void decrement_brightness();
 
 private:
     void brightness( uint8_t brightness ) { m_brightness = brightness; }

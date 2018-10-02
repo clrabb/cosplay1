@@ -3,28 +3,25 @@
 #include "constants.h"
 #include <arduino.h>
 
-void
-g_data::increment_brightness()
+g_data::g_data()
+    : m_brightness( 0 )
 {
-    if ( brightness() < PIXEL_ARRAY_MAX_BRIGHTNESS )
-    {
-        brightness( brightness() + 1 );
-    }
-
-    digitalWrite( LED_BUILTIN, HIGH );
-
-    return;
 }
 
 void
-g_data::decrement_brightness()
+g_data::increment_brightness()
 {
-    if ( brightness() > PIXEL_ARRAY_MAX_BRIGHTNESS )
+    if ( this->brightness() < PIXEL_ARRAY_MAX_BRIGHTNESS )
     {
-        brightness( brightness() - 1 );
+        if ( this->brightness() == MAX_BRIGHTNESS_LVL )
+        {
+            this->brightness( 0 );
+        }
+        else
+        {
+            this->brightness( this->brightness() + 1 );
+        }
     }
-
-    digitalWrite( LED_BUILTIN, LOW );
 
     return;
 }

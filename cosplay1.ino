@@ -26,7 +26,10 @@ void setup()
     // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
     #if defined (__AVR_ATtiny85__)
         if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
+    #else
+        Serial.begin( 9600 );
     #endif
+
 
     init_singletons();
 
@@ -39,6 +42,7 @@ void init_singletons()
 {
     init_pixel_array();
     init_buttons();
+    init_g_data();
 
     return;
 }
@@ -48,7 +52,7 @@ void init_buttons()
     singleton_t< button_array > ba( new button_array );
 
     button_array& buttons = singleton_t< button_array >::instance();
-    buttons.bright_btn( new bright_btn( BRIGHT_UP_BTN_PIN ) );
+    buttons.bright_btn( new bright_btn( BRIGHTNESS_BTN_PIN ) );
 
     return;
 }
@@ -79,7 +83,11 @@ void loop()
 {
     pixel_array&  pa = singleton_t< pixel_array >::instance();
     button_array& ba = singleton_t< button_array >::instance();
+    g_data&       gd = singleton_t< g_data >::instance();
 
     ba.update_buttons();
     pa.rainbow_all_same( RAINBOW_SPEED_SLOW );
+    
+    Serial.print( "brightness is: " );
+    Serial.println( gd.brightness() );
 }

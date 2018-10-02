@@ -9,11 +9,10 @@ public:
     bright_btn( unsigned short pin );
 
 public:
-    virtual void update();
-    virtual void updateFromPressed();
-    virtual void updateFromUnpressed();
-    virtual void updateFromLatched();
-
+    virtual void pressedFromUnpressedImpl( button_state* btn_state );
+    virtual void pressedFromPressedImpl( button_state* btn_state );
+    virtual void unpressedFromUnpressedImpl( button_state* btn_state );
+    virtual void unpressedFromPressedImpl( button_state* btn_state );
     
 private:
     bright_btn( const bright_btn& ); // COPY CTOR

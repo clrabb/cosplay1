@@ -17,103 +17,33 @@ button_state::update( button* btn )
     return;
 }
 
-void
-button_state::switch_to_pressed( button* btn )
-{
-    btn->current_state( btn->pressed_state() );
-
-    return;
-}
-
-void
-button_state::switch_to_unpressed( button* btn )
-{
-    btn->current_state( btn->unpressed_state() );
-
-    return;
-}
-
-void
-button_state::switch_to_latched( button* btn )
-{
-    btn->current_state( btn->latched_state() );
-
-    return;
-}
-
 /* -------------------- UNPRESSED -------------------- */
 
 void
 button_state_unpressed::button_pressed( button* btn )
 {
-    this->switch_to_pressed( btn );
+    btn->pressedFromUnpressed( this );
     return;
 }
 
 void
 button_state_unpressed::button_unpressed( button* btn )
 {
-    // I'm already unpresed
-    //
-    return;
+   btn->unpressedFromUnpressed( this );
 }
 
 /* -------------------- PRESSED -------------------- */
 
 button_state_pressed::button_state_pressed()
-{
-}
-
-unsigned long
-button_state_pressed::mills_since_first_pressed()
-{
-    unsigned long now = millis();
-    unsigned long first_pressed = this->first_pressed_mills();
-    unsigned long interval = now - first_pressed;
-
-    return interval;
-}
-
-void
-button_state_pressed::button_unpressed( button* btn )
-{
-    this->switch_to_unpressed( btn );
-    return;
+{    
+    this->is_first_pressed( true );
 }
 
 void
 button_state_pressed::reset_state()
 {
     button_state::reset_state();
-    this->first_pressed_mills( millis() );
-    this->has_updated_brightness( false );
-
-    return;
-}
-
-bool
-button_state_pressed::should_latch()
-{
-    unsigned long interval = this->mills_since_first_pressed();
-    bool should_latch = ( interval > BTN_LATCHED_MILLS );
-
-    return should_latch;
-}
-
-bool
-button_state_pressed::is_first_pressed()
-{
-    return !( this->has_updated_brightness() );
-}
-
-void 
-button_state_pressed::switch_to_latched_if_needed( button* btn )
-{
-    if ( this->should_latch() )
-    {
-        this->switch_to_latched( btn );
-    }
-
+    this->is_first_pressed( true );
     return;
 }
 
@@ -122,38 +52,18 @@ button_state_pressed::button_pressed( button* btn )
 {
     if ( this->is_first_pressed() )
     {
-        btn->update();
-        this->has_updated_brightness( true );
-    }
-    else
-    {
-        this->switch_to_latched_if_needed( btn );
-    }
-
-    return;
-}
-
-
-
-/* -------------------- LATCHED -------------------- */
-
-void
-button_state_latched::button_pressed( button* btn )
-{
-    if ( ( millis() - this->last_sp_change_mills() ) > BTN_UPDATE_SP_DELAY  )
-    {
-        btn->updateFromLatched();
-        this->last_sp_change_mills( millis() );
+        this->is_first_pressed( false );
+        btn->pressedFromPressed( this );
     }
 
     return;
 }
 
 void
-button_state_latched::reset_state()
+button_state_pressed::button_unpressed( button* btn )
 {
-    button_state_pressed::reset_state();
-    this->last_sp_change_mills( 0 );
+    btn->unpressedFromPressed( this );
 }
+
 
 
