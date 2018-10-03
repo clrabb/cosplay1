@@ -1,6 +1,5 @@
 #include "constants.h"
 #include "cp_types.h"
-#include "pixel_array.h"
 #include "singleton_t.h"
 #include "g_data.h"
 #include "button_array.h"
@@ -64,7 +63,7 @@ void init_g_data()
     return;
 }
 
-void init_pixel_array()
+void init_pixel_strip()
 {
     // Parameter 1 = number of pixels in strip
     // Parameter 2 = Arduino pin number (most are valid)
@@ -74,17 +73,16 @@ void init_pixel_array()
     //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
     //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
     //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
-    singleton_t< pixel_array > array( new pixel_array( NUM_PIXELS, PIXEL_ARRAY_PIN, NEO_GRB + NEO_KHZ800 ) );
+    singleton_t< pixel_strip > strip( new pixel_strip( NUM_PIXELS, PIXEL_ARRAY_PIN, NEO_GRB + NEO_KHZ800 ) );
 
     return;
 }
 
 void loop() 
 {
-    pixel_array&  pa = singleton_t< pixel_array >::instance();
-    button_array& ba = singleton_t< button_array >::instance();
-    g_data&       gd = singleton_t< g_data >::instance();
+    command_array& ca = singleton_t< command_array >::instance();
+    button_array&  ba = singleton_t< button_array >::instance();
+    g_data&        gd = singleton_t< g_data >::instance();
 
     ba.update_buttons();
-    //pa.rainbow_all_same( RAINBOW_SPEED_SLOW );
 }

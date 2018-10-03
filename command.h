@@ -3,8 +3,6 @@
 
 #include "cp_types.h"
 #include "constants.h"
-#include "led.h"
-
 
 #ifdef __AVR__
   #include <avr/power.h>
@@ -13,15 +11,13 @@
 
 class command
 {
-private
-    pixel_strip& m_pixel_strip;
+private:
     
 public:
-    command() : m_pixel_strip( NUM_PIXELS, PIXEL_ARRAY_PIN, NEO_GRB + NEO_KHZ800 ) {}
+    command() {}
     virtual void tick() = 0;
 
 protected: 
-    pixel_strip& pixel_strip() { return m_pixel_strip; }
     uint8_t map_brightness();
 
 private:
