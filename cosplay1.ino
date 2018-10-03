@@ -86,8 +86,5 @@ void loop()
     g_data&       gd = singleton_t< g_data >::instance();
 
     ba.update_buttons();
-    pa.rainbow_all_same( RAINBOW_SPEED_SLOW );
-    
-    Serial.print( "brightness is: " );
-    Serial.println( gd.brightness() );
+    //pa.rainbow_all_same( RAINBOW_SPEED_SLOW );
 }

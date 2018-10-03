@@ -1,17 +1,15 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#include <arduino.h>
+#include <stdint.h>
 
 /* ----------------- PINS ----------------------*/
 static const unsigned short BRIGHTNESS_BTN_PIN = 3;
 
-static const uint8_t PIXEL_ARRAY_MAX_BRIGHTNESS = 255;
-static const uint8_t PIXEL_ARRAY_MIN_BRIGHTNESS = 0; 
+/* ----------------- PIXELS --------------------*/
 static const short   PIXEL_ARRAY_PIN            = 4;
 static const uint8_t NUM_PIXELS                 = 5;
-static const uint8_t RAINBOW_SPEED_FAST         = 2;  // how quicky the colors change (quick)
-static const uint8_t RAINBOW_SPEED_SLOW         = 50; // ..slower
+static const uint8_t PIXEL_MAX_BRIGHTNESS       = 255;
 
 /* ---------------- BUTTON CONSTANTS ---------- */
 static const int BTN_LATCHED_MILLS   = 700;
