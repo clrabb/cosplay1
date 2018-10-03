@@ -4,6 +4,8 @@
 #include "g_data.h"
 #include "button_array.h"
 #include "bright_btn.h"
+#include "command_btn.h"
+#include "command_array.h"
 
 #include <arduino.h>
 
@@ -32,18 +34,24 @@ void setup()
 
     init_singletons();
 
-    pixel_array& pa = singleton_t< pixel_array >::instance();
-    pa.begin();
-    pa.show();
+    pixel_strip& ps = singleton_t< pixel_strip >::instance();
+    ps.begin();
+    ps.show();
 }
 
 void init_singletons()
 {
-    init_pixel_array();
+    init_command_array();
+    init_pixel_strip();
     init_buttons();
     init_g_data();
 
     return;
+}
+
+void init_command_array()
+{
+    singleton_t< command_array > ca( new command_array() );
 }
 
 void init_buttons()
@@ -52,6 +60,7 @@ void init_buttons()
 
     button_array& buttons = singleton_t< button_array >::instance();
     buttons.bright_btn( new bright_btn( BRIGHTNESS_BTN_PIN ) );
+    buttons.command_btn( new command_btn( COMMAND_BTN_PIN ) );
 
     return;
 }
@@ -85,4 +94,5 @@ void loop()
     g_data&        gd = singleton_t< g_data >::instance();
 
     ba.update_buttons();
+    ca.tick();
 }

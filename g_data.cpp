@@ -11,15 +11,17 @@ g_data::g_data()
 void
 g_data::increment_brightness()
 {
-    if ( this->brightness() < PIXEL_ARRAY_MAX_BRIGHTNESS )
+    uint8_t brightness = this->brightness();
+    
+    if ( brightness < MAX_BRIGHTNESS_LVL )
     {
-        if ( this->brightness() == MAX_BRIGHTNESS_LVL )
+        if ( brightness == MAX_BRIGHTNESS_LVL )
         {
             this->brightness( 0 );
         }
         else
         {
-            this->brightness( this->brightness() + 1 );
+            this->brightness( brightness++ );
         }
     }
 

@@ -4,15 +4,20 @@
 #include <stdint.h>
 
 /* ----------------- PINS ----------------------*/
-static const unsigned short BRIGHTNESS_BTN_PIN = 3;
+static const unsigned short BRIGHTNESS_BTN_PIN  = 3;
+static const unsigned short COMMAND_BTN_PIN     = 4;
+static const unsigned short PIXEL_ARRAY_PIN     = 5;
 
 /* ----------------- PIXELS --------------------*/
-static const short   PIXEL_ARRAY_PIN            = 4;
+
 static const uint8_t NUM_PIXELS                 = 5;
 static const uint8_t PIXEL_MAX_BRIGHTNESS       = 255;
 
+/* ---------------- COMMANDS -------------------*/
+static const uint8_t NUM_COMMANDS               = 1;
+
 /* ---------------- SIMPLE_BLINK ---------------*/
-static const int SIMPLE_BLINK_DURATION_MILLS = 500;
+static const int SIMPLE_BLINK_DURATION_MILLS    = 500;
 
 /* ---------------- BUTTON CONSTANTS ---------- */
 static const int BTN_LATCHED_MILLS   = 700;

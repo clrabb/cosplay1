@@ -7,7 +7,7 @@ class button_array
 {
 private:
     button* m_bright_btn;
-    button* m_prog_sel_btn;
+    button* m_command_btn;
 
 public:
     button_array() {}
@@ -15,8 +15,8 @@ public:
     button* bright_btn() { return m_bright_btn; }
     void bright_btn( button* btn ) { m_bright_btn = btn; }
 
-    button* prog_sel_btn() { return m_prog_sel_btn; }
-    void prog_sel_btn( button* btn ) { m_prog_sel_btn = btn; }
+    button* command_btn() { return m_command_btn; }
+    void command_btn( button* btn ) { m_command_btn = btn; }
 
     void update_buttons();
 

@@ -5,7 +5,7 @@
 #include "cp_types.h"
 #include <stdint.h>
 
-class command_simple_blink : command
+class command_simple_blink : public command
 {
 private:
     uint32_t m_last_action_mills;

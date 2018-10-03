@@ -21,6 +21,8 @@ command_simple_blink::tick()
         this->last_action_mills( millis() );
     }
 
+    Serial.println( "tick" );
+
     return;
 }
 
@@ -50,5 +52,6 @@ command_simple_blink::move_next_pixel()
     uint32_t pixel_data = strip.Color( brightness, brightness, brightness ); // All colors the same value
     strip.clear();
     strip.setPixelColor( this->current_pixel_num(), pixel_data );
+    strip.show();
 }
 
