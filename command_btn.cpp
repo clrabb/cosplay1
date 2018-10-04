@@ -10,8 +10,8 @@ command_btn::command_btn( short pin )
 void
 command_btn::pressedFromUnpressedImpl( button_state* state )
 {
-    command_array& ca = singleton_t< command_array >::instance();
-    ca.increment_command();
+    command_array& comm_array = singleton_t< command_array >::instance();
+    comm_array.increment_command();
 }
 
 void

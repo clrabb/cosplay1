@@ -10,7 +10,7 @@ void
 bright_btn::pressedFromUnpressedImpl( button_state* state )
 {    
     g_data& gd = singleton_t< g_data >::instance();
-    gd.increment_brightness();
+    gd.increment_absolute_brightness();
 
     return;
 }

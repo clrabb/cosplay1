@@ -16,9 +16,10 @@ private:
 public:
     command() {}
     virtual void tick() = 0;
+    virtual void init() = 0;
 
 protected: 
-    uint8_t map_brightness();
+    uint8_t map_brightness( uint8_t absolute_brightness );
 
 private:
     command( const command& );

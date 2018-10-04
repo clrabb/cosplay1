@@ -14,6 +14,7 @@ private:
 public:
     command_simple_blink();
     virtual void tick();
+    virtual void init();
 
 private:
     uint32_t last_action_mills() { return m_last_action_mills; }
@@ -21,7 +22,8 @@ private:
     uint8_t current_pixel_num() { return m_current_pixel_num; }
     void current_pixel_num( uint8_t num ) { m_current_pixel_num = num; }
     void move_next_pixel();
-    uint8_t increment_pixel_num();
+    void increment_pixel_num();
+    void turn_off_pixel( uint8_t num );
 
 private:
     command_simple_blink( const command_simple_blink& );

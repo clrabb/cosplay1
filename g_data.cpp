@@ -4,26 +4,22 @@
 #include <arduino.h>
 
 g_data::g_data()
-    : m_brightness( 0 )
+    : m_absolute_brightness( 0 )
 {
 }
 
 void
-g_data::increment_brightness()
+g_data::increment_absolute_brightness()
 {
-    uint8_t brightness = this->brightness();
-    
-    if ( brightness < MAX_BRIGHTNESS_LVL )
-    {
-        if ( brightness == MAX_BRIGHTNESS_LVL )
-        {
-            this->brightness( 0 );
-        }
-        else
-        {
-            this->brightness( brightness++ );
-        }
-    }
+    uint8_t current_brightness = this->absolute_brightness();
+
+    uint8_t new_brightness =
+        ( current_brightness == LED_ABSOLUTE_BRIGHTNESS )
+            ? 0
+            : ++current_brightness
+    ;
+
+    this->absolute_brightness( new_brightness );
 
     return;
 }
