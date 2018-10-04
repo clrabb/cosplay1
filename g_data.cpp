@@ -4,7 +4,7 @@
 #include <arduino.h>
 
 g_data::g_data()
-    : m_absolute_brightness( 0 )
+    : m_absolute_brightness( 3 )
 {
 }
 
