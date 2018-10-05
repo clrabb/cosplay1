@@ -43,7 +43,7 @@ command_simple_blink::increment_pixel_num()
     
     uint8_t new_pixel_num = 
         ( current_pixel_num == NUM_PIXELS ) 
-            ? 0 
+            ? 0
             : ++current_pixel_num
     ;
 
@@ -67,12 +67,12 @@ command_simple_blink::move_next_pixel()
     pixel_strip& strip      = singleton_t< pixel_strip >::instance();
     uint8_t      brightness = this->map_brightness( data.absolute_brightness() );
 
-    this->turn_off_pixel( this->current_pixel_num() );
-    
+    this->turn_off_pixel( this->current_pixel_num() );    
     this->increment_pixel_num();
     
     uint32_t pixel_data = strip.Color( brightness, brightness, brightness ); // All colors the same value
     strip.setPixelColor( this->current_pixel_num(), pixel_data );
+    
     strip.show();
 }
 
