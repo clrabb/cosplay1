@@ -16,6 +16,9 @@ public:
     virtual void tick();
     virtual void init();
 
+protected:
+    virtual uint32_t get_color_impl( pixel_strip& strip, uint8_t brightness );
+
 private:
     uint32_t last_action_mills() { return m_last_action_mills; }
     void last_action_mills( uint32_t mills ) { m_last_action_mills = mills; }

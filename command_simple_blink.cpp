@@ -60,18 +60,20 @@ command_simple_blink::turn_off_pixel( uint8_t num )
     strip.show();
 }
 
+uint32_t
+command_simple_blink::get_color_impl( pixel_strip& strip, uint8_t brightness )
+{
+    return strip.Color( brightness, brightness, brightness );
+}
+
 void
 command_simple_blink::move_next_pixel()
 {
-    g_data&      data       = singleton_t< g_data >::instance();
     pixel_strip& strip      = singleton_t< pixel_strip >::instance();
-    uint8_t      brightness = this->map_brightness( data.absolute_brightness() );
 
     this->turn_off_pixel( this->current_pixel_num() );    
-    this->increment_pixel_num();
-    
-    uint32_t pixel_data = strip.Color( brightness, brightness, brightness ); // All colors the same value
-    strip.setPixelColor( this->current_pixel_num(), pixel_data );
+    this->increment_pixel_num();    
+    strip.setPixelColor( this->current_pixel_num(), this->get_color() );
     
     strip.show();
 }

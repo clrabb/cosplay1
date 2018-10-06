@@ -3,6 +3,7 @@
 
 #include "cp_types.h"
 #include "constants.h"
+#include <stdint.h>
 
 #ifdef __AVR__
   #include <avr/power.h>
@@ -19,7 +20,10 @@ public:
     virtual void init() = 0;
 
 protected: 
-    uint8_t map_brightness( uint8_t absolute_brightness );
+    virtual uint32_t get_color();
+    virtual uint32_t get_color_impl( pixel_strip& strip, uint8_t mapped_brightness ) = 0;
+    virtual uint8_t map_brightness();
+    
 
 private:
     command( const command& );
