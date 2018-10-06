@@ -4,10 +4,16 @@
 #include <stdint.h>
 
 
+#ifdef ARDUINO_AVR_GEMMA
 /* ----------------- PINS ----------------------*/
 static const unsigned short BRIGHTNESS_BTN_PIN  = 0;
 static const unsigned short COMMAND_BTN_PIN     = 1;
 static const unsigned short PIXEL_ARRAY_PIN     = 2;
+#else
+static const unsigned short BRIGHTNESS_BTN_PIN  = 3;
+static const unsigned short COMMAND_BTN_PIN     = 4;
+static const unsigned short PIXEL_ARRAY_PIN     = 5;
+#endif // GEMMA
 
 /* ----------------- PIXELS --------------------*/
 
