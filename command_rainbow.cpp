@@ -1,6 +1,7 @@
 #include "command_rainbow.h"
 #include "singleton_t.h"
 #include "cp_types.h"
+#include <math.h>
 
 command_rainbow::command_rainbow()
     : m_start_wait_mills( millis() ),

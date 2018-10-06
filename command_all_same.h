@@ -5,6 +5,10 @@
 
 class command_all_same : public command
 {
+private:
+    uint32_t m_last_color;
+    uint32_t last_color() { return m_last_color; }
+    void last_color( uint32_t color ) { m_last_color = color; }   
     
 public:
     command_all_same() {}

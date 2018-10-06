@@ -6,7 +6,6 @@
 
 class command_all_red : public command_all_same
 {
-    
 public:
     command_all_red() {}
 

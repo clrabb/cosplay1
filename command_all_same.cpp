@@ -7,8 +7,12 @@
 void
 command_all_same::tick()
 {
-    pixel_strip& ps = singleton_t< pixel_strip >::instance();
     uint32_t color = this->get_color();
+    if ( color == this->last_color() )
+        return;
+
+    
+    pixel_strip& ps = singleton_t< pixel_strip >::instance();
     
     for ( int i = 0; i < NUM_PIXELS; ++i )
     {
