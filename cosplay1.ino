@@ -6,7 +6,6 @@
 #include "bright_btn.h"
 #include "command_btn.h"
 #include "command_array.h"
-#include "heartbeat.h"
 
 #include <arduino.h>
 
@@ -46,15 +45,10 @@ void init_singletons()
     init_pixel_strip();
     init_buttons();
     init_g_data();
-    init_heartbeat();
-
+    
     return;
 }
 
-void init_heartbeat()
-{
-    singleton_t< heartbeat > hb( new heartbeat() );
-}
 
 void init_command_array()
 {
@@ -99,10 +93,7 @@ void loop()
     command_array& ca = singleton_t< command_array >::instance();
     button_array&  ba = singleton_t< button_array >::instance();
     g_data&        gd = singleton_t< g_data >::instance();
-    heartbeat&     hb = singleton_t< heartbeat >::instance();
 
     ba.update_buttons();
     ca.tick();
-    //hb.beat();
-    
 }

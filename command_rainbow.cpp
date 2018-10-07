@@ -82,25 +82,23 @@ command_rainbow::get_color_impl( pixel_strip& strip, uint8_t brightness )
 // The colours are a transition r - g - b - back to r.
 uint32_t 
 command_rainbow::wheel( const pixel_strip& strip, byte wheel_pos ) 
-{
-    uint8_t mapped_brightness = this->map_brightness();
-    
+{    
     wheel_pos = 255 - wheel_pos;
 
     uint32_t new_pos;
     if ( wheel_pos < 85 )
     {
-        new_pos = strip.Color( mapped_brightness - wheel_pos * 3, 0, wheel_pos * 3 );
+        new_pos = strip.Color( 255 - wheel_pos * 3, 0, wheel_pos * 3 );
     }
     else if ( wheel_pos < 170 )
     {
         wheel_pos -= 85;
-        new_pos = strip.Color( 0, wheel_pos * 3, mapped_brightness - wheel_pos * 3 );
+        new_pos = strip.Color( 0, wheel_pos * 3, 255 - wheel_pos * 3 );
     }
     else
     {
         wheel_pos -= 170;
-        new_pos = strip.Color( wheel_pos * 3, mapped_brightness - wheel_pos * 3, 0 );
+        new_pos = strip.Color( wheel_pos * 3, 255 - wheel_pos * 3, 0 );
     }
 
     return new_pos;
