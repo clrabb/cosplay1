@@ -1,5 +1,5 @@
 #include "button_array.h"
-#include <arduino.h>
+#include <Arduino.h>
 
 void
 button_array::update_buttons()

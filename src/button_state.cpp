@@ -2,7 +2,7 @@
 #include "button.h"
 #include "constants.h"
 #include "singleton_t.h"
-#include "arduino.h"
+#include "Arduino.h"
 
 /* -------------------- BASE -------------------- */
 

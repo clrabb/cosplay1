@@ -1,7 +1,7 @@
 #ifndef GLOBAL_DATA_H
 #define GLOBAL_DATA_H
 
-#include <arduino.h>
+#include <Arduino.h>
 
 class g_data
 {

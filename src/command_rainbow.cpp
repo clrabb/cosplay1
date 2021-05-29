@@ -13,8 +13,9 @@ command_rainbow::command_rainbow()
 void
 command_rainbow::init()
 {
-    m_outer_loop_idx  = 0;
-    m_inner_loop_idx  = 0;
+    m_outer_loop_idx   = 0;
+    m_inner_loop_idx   = 0;
+    m_start_wait_mills = 0;
     this->start_wait_mills( millis() );
 }
 

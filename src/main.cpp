@@ -7,7 +7,7 @@
 #include "command_btn.h"
 #include "command_array.h"
 
-#include <arduino.h>
+#include <Arduino.h>
 
 #ifdef __AVR__
   #include <avr/power.h>
@@ -22,32 +22,8 @@
 
 
 
-void setup() 
-{
-    // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
-    #if defined (__AVR_ATtiny85__)
-        if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
-    #else
-        Serial.begin( 9600 );
-    #endif
 
 
-    init_singletons();
-
-    pixel_strip& ps = singleton_t< pixel_strip >::instance();
-    ps.begin();
-    ps.show();
-}
-
-void init_singletons()
-{
-    init_command_array();
-    init_pixel_strip();
-    init_buttons();
-    init_g_data();
-    
-    return;
-}
 
 
 void init_command_array()
@@ -87,6 +63,34 @@ void init_pixel_strip()
 
     return;
 }
+
+void init_singletons()
+{
+    init_command_array();
+    init_pixel_strip();
+    init_buttons();
+    init_g_data();
+    
+    return;
+}
+
+void setup() 
+{
+    // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
+    #if defined (__AVR_ATtiny85__)
+        if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
+    #else
+        Serial.begin( 9600 );
+    #endif
+
+
+    init_singletons();
+
+    pixel_strip& ps = singleton_t< pixel_strip >::instance();
+    ps.begin();
+    ps.show();
+}
+
 
 void loop() 
 {

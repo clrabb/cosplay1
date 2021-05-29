@@ -1,7 +1,7 @@
 #include "button.h"
 #include "cp_types.h"
 #include "button_state.h"
-#include <arduino.h>
+#include <Arduino.h>
 
 button::button( short pin )
     :m_pin( pin )

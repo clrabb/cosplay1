@@ -48,8 +48,6 @@ command_simple_blink::increment_pixel_num()
     ;
 
     this->current_pixel_num( new_pixel_num );
-
-    return new_pixel_num;   
 }
 
 void

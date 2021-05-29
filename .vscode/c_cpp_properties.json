@@ -1,0 +1,64 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/home/crabb/projects/guy_lights/include",
+                "/home/crabb/projects/guy_lights/src",
+                "/home/crabb/projects/guy_lights/.pio/libdeps/metro/Adafruit NeoPixel",
+                "/home/crabb/projects/guy_lights/lib/junk/include",
+                "/home/crabb/projects/guy_lights/lib/simon_core/include",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/home/crabb/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/crabb/projects/guy_lights/include",
+                    "/home/crabb/projects/guy_lights/src",
+                    "/home/crabb/projects/guy_lights/.pio/libdeps/metro/Adafruit NeoPixel",
+                    "/home/crabb/projects/guy_lights/lib/junk/include",
+                    "/home/crabb/projects/guy_lights/lib/simon_core/include",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/home/crabb/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50101",
+                "ARDUINO_AVR_METRO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/home/crabb/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

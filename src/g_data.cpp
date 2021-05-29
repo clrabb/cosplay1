@@ -1,7 +1,7 @@
 #include "g_data.h"
 
 #include "constants.h"
-#include <arduino.h>
+#include <Arduino.h>
 
 g_data::g_data()
     : m_absolute_brightness( 3 )
