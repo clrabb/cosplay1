@@ -9,10 +9,12 @@
 void
 button_state::update( button* btn )
 {
-    ( digitalRead( btn->pin() ) == HIGH )
-        ? this->button_pressed( btn )
-        : this->button_unpressed( btn )
-    ;
+    bool is_high = digitalRead( btn->pin() ) == HIGH;
+
+    if ( is_high )
+        this->button_pressed( btn );
+    else   
+        this->button_unpressed( btn );
 
     return;
 }

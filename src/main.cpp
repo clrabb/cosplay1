@@ -6,6 +6,7 @@
 #include "bright_btn.h"
 #include "command_btn.h"
 #include "command_array.h"
+#include "heartbeat.h"
 
 #include <Arduino.h>
 
@@ -60,12 +61,19 @@ void init_pixel_strip()
     //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
     //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
     singleton_t< pixel_strip > strip( new pixel_strip( NUM_PIXELS, PIXEL_ARRAY_PIN, NEO_GRB + NEO_KHZ800 ) );
+    
 
     return;
 }
 
+void init_heartbeat()
+{
+    singleton_t< heartbeat > hb( new heartbeat( HEARTBEAT_PIN, MILLS_BETWEEN_BEATS, MILLS_BEAT_LENGTH ) );
+}
+
 void init_singletons()
 {
+    init_heartbeat();
     init_command_array();
     init_pixel_strip();
     init_buttons();
@@ -97,7 +105,9 @@ void loop()
     command_array& ca = singleton_t< command_array >::instance();
     button_array&  ba = singleton_t< button_array >::instance();
     g_data&        gd = singleton_t< g_data >::instance();
+    heartbeat&     hb = singleton_t< heartbeat >::instance();
 
+    hb.beat();
     ba.update_buttons();
     ca.tick();
 }

@@ -4,22 +4,27 @@
 #include <stdint.h>
 
 
-
 /* ----------------- PINS ----------------------*/
-#ifdef ARDUINO_AVR_GEMMA
-static const unsigned short BRIGHTNESS_BTN_PIN  = 0;
-static const unsigned short COMMAND_BTN_PIN     = 1;
-static const unsigned short PIXEL_ARRAY_PIN     = 2;
+#ifdef FEATHER_M0
+static const unsigned short BRIGHTNESS_BTN_PIN  = 9;
+static const unsigned short COMMAND_BTN_PIN     = 11;
+static const unsigned short PIXEL_ARRAY_PIN     = 15;
+static const unsigned short HEARTBEAT_PIN       = 3; 
 #else
-static const unsigned short BRIGHTNESS_BTN_PIN  = 6;
-static const unsigned short COMMAND_BTN_PIN     = 9;
-static const unsigned short PIXEL_ARRAY_PIN     = 10;
-#endif // ARDUINO_AVR_GEMMA
+static const unsigned short BRIGHTNESS_BTN_PIN  = 4;
+static const unsigned short COMMAND_BTN_PIN     = 3;
+static const unsigned short PIXEL_ARRAY_PIN     = 2;
+static const unsigned short HEARTBEAT_PIN       = 12; 
+#endif // FEATHER_M0
+
+/* ----------------- HEARTBEAT -----------------*/
+static const unsigned long MILLS_BETWEEN_BEATS = 1500;
+static const unsigned long MILLS_BEAT_LENGTH   = 300;
 
 
 /* ----------------- PIXELS --------------------*/
 
-static const uint8_t NUM_PIXELS                 = 5;
+static const uint8_t NUM_PIXELS                 = 8;
 static const uint8_t PIXEL_MAX_BRIGHTNESS       = 255;
 
 /* ---------------- COMMANDS -------------------*/
@@ -38,6 +43,6 @@ static const int MAX_SETPOINT        = 1800;    // The highest temp the buttons 
 static const int MIN_SETPOINT        = 0;       // The lowest temp the buttons will let you go
 
 /* ---------------- GENERAL CONSTANTS ----------*/
-static const int LED_ABSOLUTE_BRIGHTNESS        = 5;
+static const int LED_ABSOLUTE_BRIGHTNESS        = 30;
 
 #endif // CONSTANTS_H

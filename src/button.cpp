@@ -6,6 +6,8 @@
 button::button( short pin )
     :m_pin( pin )
 {
+    pinMode( pin, INPUT_PULLUP );
+
     this->pressed_state(   new button_state_pressed()   );
     this->unpressed_state( new button_state_unpressed() );
 
