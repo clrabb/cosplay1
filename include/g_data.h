@@ -10,7 +10,9 @@ private:
 
 public:
     g_data();
-    uint8_t absolute_brightness() { return m_absolute_brightness; }
+    //uint8_t absolute_brightness() { return m_absolute_brightness; }
+    uint8_t absolute_brightness() { return 1; }
+    
     void increment_absolute_brightness();
 
 private:

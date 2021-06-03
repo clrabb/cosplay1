@@ -43,6 +43,6 @@ static const int MAX_SETPOINT        = 1800;    // The highest temp the buttons 
 static const int MIN_SETPOINT        = 0;       // The lowest temp the buttons will let you go
 
 /* ---------------- GENERAL CONSTANTS ----------*/
-static const int LED_ABSOLUTE_BRIGHTNESS        = 30;
+static const int LED_ABSOLUTE_BRIGHTNESS        = 255;
 
 #endif // CONSTANTS_H

@@ -66,6 +66,11 @@ void init_pixel_strip()
     return;
 }
 
+void init_dotstar()
+{
+    //singleton_t< dot_star > ds( new dot_star( 1, LED_DATA_PIN, LED_CLOCK_PIN, DOTSTAR_BRG ) );
+}
+
 void init_heartbeat()
 {
     singleton_t< heartbeat > hb( new heartbeat( HEARTBEAT_PIN, MILLS_BETWEEN_BEATS, MILLS_BEAT_LENGTH ) );
@@ -76,6 +81,7 @@ void init_singletons()
     init_heartbeat();
     init_command_array();
     init_pixel_strip();
+    init_dotstar();
     init_buttons();
     init_g_data();
     
