@@ -6,11 +6,13 @@
 class command_array
 {
 private:
-    uint8_t m_current_command_index;
-    command* m_commands[ NUM_COMMANDS ];
+    uint8_t         m_current_command_index;
+    command*        m_commands[ NUM_COMMANDS ];
+    unsigned long   m_last_change_mills;
 
     uint8_t current_command_index() { return m_current_command_index; }
     void current_command_index( uint8_t index ) { m_current_command_index = index; }
+    command* current_command();
     void change_to_command( uint8_t index );
     void init();
     
@@ -18,6 +20,13 @@ public:
     command_array();
     void tick();
     void increment_command();
+    unsigned long mills_since_last_change();
+
+private:
+    unsigned long last_change_mills() { return this->m_last_change_mills; }
+    void last_change_mills( unsigned long mills ) { this->m_last_change_mills = mills; }
+    void change_to_random_command();
+    void reset_command();
 
 private:
     command_array( const command_array& );

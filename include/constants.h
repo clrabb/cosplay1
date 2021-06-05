@@ -5,7 +5,7 @@
 
 
 /* ----------------- PINS ----------------------*/
-#ifdef FEATHER_M0
+#ifndef TRINKET_M0
 static const unsigned short BRIGHTNESS_BTN_PIN  = 9;
 static const unsigned short COMMAND_BTN_PIN     = 11;
 static const unsigned short PIXEL_ARRAY_PIN     = 15;
@@ -29,6 +29,7 @@ static const uint8_t PIXEL_MAX_BRIGHTNESS       = 255;
 
 /* ---------------- COMMANDS -------------------*/
 static const uint8_t NUM_COMMANDS               = 4;
+static unsigned long MILLS_BETWEEN_CHANGE       = 3000;
 
 /* ---------------- SIMPLE_BLINK ---------------*/
 static const int SIMPLE_BLINK_DURATION_MILLS    = 200;

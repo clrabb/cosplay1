@@ -66,6 +66,7 @@ void init_pixel_strip()
     return;
 }
 
+#ifdef TRINKET_M0
 void init_dotstar()
 {
     singleton_t< dot_star > ds( new dot_star( 1, INTERNAL_DS_DATA, INTERNAL_DS_CLK, DOTSTAR_BRG ) );
@@ -75,6 +76,7 @@ void init_dotstar()
     star.show();
     
 }
+#endif // TRINKET_M0
 
 void init_heartbeat()
 {
@@ -86,9 +88,12 @@ void init_singletons()
     init_heartbeat();
     init_command_array();
     init_pixel_strip();
-    init_dotstar();
     init_buttons();
     init_g_data();
+
+#ifdef TRINKET_M0
+    init_dotstar();
+#endif // TRINKET_M0
     
     return;
 }
