@@ -28,7 +28,7 @@ static const uint8_t NUM_PIXELS                 = 8;
 static const uint8_t PIXEL_MAX_BRIGHTNESS       = 255;
 
 /* ---------------- COMMANDS -------------------*/
-static const uint8_t NUM_COMMANDS               = 5;
+static const uint8_t NUM_COMMANDS               = 4;
 
 /* ---------------- SIMPLE_BLINK ---------------*/
 static const int SIMPLE_BLINK_DURATION_MILLS    = 200;

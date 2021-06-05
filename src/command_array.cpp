@@ -11,7 +11,6 @@ command_array::command_array()
     this->m_commands[ 1 ] = new command_all_green();
     this->m_commands[ 2 ] = new command_all_blue();
     this->m_commands[ 3 ] = new command_all_red();
-    this->m_commands[ 4 ] = new command_rainbow();
     this->m_current_command_index = 0;
 }
 
