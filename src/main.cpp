@@ -9,6 +9,7 @@
 #include "heartbeat.h"
 
 #include <Arduino.h>
+#include <variant.h>
 
 #ifdef __AVR__
   #include <avr/power.h>
@@ -20,7 +21,6 @@
 // pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
 // and minimize distance between Arduino and first pixel.  Avoid connecting
 // on a live circuit...if you must, connect GND first.
-
 
 
 
@@ -68,7 +68,12 @@ void init_pixel_strip()
 
 void init_dotstar()
 {
-    //singleton_t< dot_star > ds( new dot_star( 1, LED_DATA_PIN, LED_CLOCK_PIN, DOTSTAR_BRG ) );
+    singleton_t< dot_star > ds( new dot_star( 1, INTERNAL_DS_DATA, INTERNAL_DS_CLK, DOTSTAR_BRG ) );
+    
+    dot_star& star = ds.instance();
+    star.begin();
+    star.show();
+    
 }
 
 void init_heartbeat()

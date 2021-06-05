@@ -13,16 +13,13 @@
                 "/home/crabb/projects/guy_lights/.pio/libdeps/metro/Adafruit DotStar",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                 "/home/crabb/projects/guy_lights/.pio/libdeps/metro/Adafruit NeoPixel",
-                "/home/crabb/projects/guy_lights/lib/junk/include",
-                "/home/crabb/projects/guy_lights/lib/simon_core/include",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/variants/standard",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                 "/home/crabb/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
-                "/home/crabb/.platformio/packages/tool-unity",
-                ""
+                "/home/crabb/.platformio/packages/tool-unity"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
