@@ -88,6 +88,12 @@ void init_singletons()
     init_heartbeat();
     init_command_array();
     init_pixel_strip();
+    
+#ifdef TRINKET_M0
+    init_dotstar();
+#endif // TRINKET_M0
+
+
     init_buttons();
     init_g_data();
 
