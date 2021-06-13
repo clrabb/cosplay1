@@ -37,7 +37,6 @@ void init_buttons()
     singleton_t< button_array > ba( new button_array );
 
     button_array& buttons = singleton_t< button_array >::instance();
-    buttons.bright_btn( new bright_btn( BRIGHTNESS_BTN_PIN ) );
     buttons.command_btn( new command_btn( COMMAND_BTN_PIN ) );
 
     return;
@@ -67,6 +66,7 @@ void init_pixel_strip()
 }
 
 #ifdef TRINKET_M0
+#pragma message "Turning off dot_star for trinkets"
 void init_dotstar()
 {
     singleton_t< dot_star > ds( new dot_star( 1, INTERNAL_DS_DATA, INTERNAL_DS_CLK, DOTSTAR_BRG ) );
@@ -92,7 +92,7 @@ void init_singletons()
     init_g_data();
 
 #ifdef TRINKET_M0
-    init_dotstar();
+    //init_dotstar();
 #endif // TRINKET_M0
     
     return;

@@ -3,8 +3,18 @@
 
 #include "command.h"
 
+
 class command_array
 {
+private:
+    static const short CMD_SIMPLE_BLINK_IDX = 0;
+    static const short CMD_ALL_GREEN_IDX    = 1;
+    static const short CMD_ALL_BLUE_IDX     = 2;
+    static const short CMD_ALL_RED_IDX      = 3;
+    static const short CMD_FOLLOW_1_IDX     = 4;
+    
+    static const short NUM_COMMANDS         = 4;
+
 private:
     uint8_t         m_current_command_index;
     command*        m_commands[ NUM_COMMANDS ];

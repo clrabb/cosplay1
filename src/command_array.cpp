@@ -3,15 +3,16 @@
 #include "command_all_green.h"
 #include "command_all_blue.h"
 #include "command_all_red.h"
-#include "command_rainbow.h"
+#include "command_follow_1.h"
 #include <Arduino.h>
 
 command_array::command_array()
 {
-    this->m_commands[ 0 ] = new command_simple_blink();
-    this->m_commands[ 1 ] = new command_all_green();
-    this->m_commands[ 2 ] = new command_all_blue();
-    this->m_commands[ 3 ] = new command_all_red();
+    this->m_commands[ CMD_SIMPLE_BLINK_IDX  ] = new command_simple_blink();
+    this->m_commands[ CMD_ALL_GREEN_IDX     ] = new command_all_green();
+    this->m_commands[ CMD_ALL_BLUE_IDX      ] = new command_all_blue();
+    this->m_commands[ CMD_ALL_RED_IDX       ] = new command_all_red();
+    //this->m_commands[ CMD_FOLLOW_1_IDX      ] = new command_follow_1();
     this->m_current_command_index = 0;
     this->m_last_change_mills     = millis();
 }
@@ -54,7 +55,7 @@ command_array::change_to_random_command()
 void
 command_array::tick()
 {
-    if ( this->mills_since_last_change() > MILLS_BETWEEN_CHANGE )
+    if ( this->mills_since_last_change() > MILLS_BETWEEN_CMD_CHANGE )
     {
         this->change_to_random_command();
     }
